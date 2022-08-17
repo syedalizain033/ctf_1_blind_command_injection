@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% block title %}
+CTF challenge
+{% endblock  %}
+
+{% block content %}
+<div style="text-align:center">
+<h2>Check Status Code of website</h2>
+
+
+    <h2>Scan IP/Web Address</h2>
+    <form method="POST" style="text-align:center>
+    <table>
+    {{ form }}
+    </table>
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Scan</button>
+
+
+{% if error %}
+<script> alert('{{ error }}') </script>
+{% endif %}
+
+{% if code %}
+<p>Status code is {{code}} </p>
+{% endif %}
+</div>
+{% endblock  %}
